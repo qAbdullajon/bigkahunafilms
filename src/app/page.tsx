@@ -23,7 +23,7 @@ export default function Home() {
   }, [])
 
   return (
-    <div className="relative w-screen h-screen overflow-hidden">
+    <div className="relative w-screen h-dvh overflow-hidden">
       <AnimatePresence>
         {loading && (
           <motion.div
@@ -68,7 +68,7 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="relative h-full flex flex-col justify-end items-start md:pb-16 pb-20 min-[480px]:pb-5">
+        <div className="relative h-full flex flex-col justify-end items-start md:pb-16 pb-20 min-[480px]:pb-5 text-white">
           <Link href={'#about'} className="font-bold">
             <p className='text-[12px] leading-3 min-[480px]:text-base min-[480px]:leading-[30px] uppercase tracking-[.2em]'>a creative production house</p>
             <h1 className='tracking-[3px] mt-5 text-[41px] md:text-[64px] lg:text-[80px] font-black leading-[46px] md:leading-[72px]'>– Crafting Is</h1>
