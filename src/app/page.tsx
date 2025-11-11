@@ -34,7 +34,7 @@ export default function Home() {
           >
             <div className='px-6'>
               <Image src={'/logo.svg'} alt='Loading' width={500} height={28} />
-              <p className='text-center mt-5 leading-[19px] text-base tracking-[3px] min-[480px]:tracking-[5px] md:tracking-[7.5px]'>A CREATIVE PRODUCTION HOUSE</p>
+              <p className='text-center text-white mt-5 leading-[19px] text-base tracking-[3px] min-[480px]:tracking-[5px] md:tracking-[7.5px]'>A CREATIVE PRODUCTION HOUSE</p>
             </div>
           </motion.div>
         )}
