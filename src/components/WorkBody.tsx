@@ -45,7 +45,9 @@ const WorkBody = ({ videos }: { videos: Video[] }) => {
           return (
             <div
               key={video.id}
-              ref={(el) => (itemRefs.current[index] = el)}
+              ref={(el) => {
+                itemRefs.current[index] = el;
+              }}
               data-index={index}
               className={`flex opacity-0 ${isVisible ? "animate-fadeUp" : ""}`}
             >
