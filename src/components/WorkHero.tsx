@@ -35,7 +35,7 @@ const WorkHero = () => {
           <Link
             key={item.id}
             href={`/work${item.path}`}
-            className={`text-[21px] transition-all duration-300 ${item.path === ('/' + pathname)
+            className={`text-lg transition-all duration-300 ${item.path === ('/' + pathname)
               ? 'font-bold hover:opacity-50'
               : 'opacity-60 hover:opacity-100'
               }`}

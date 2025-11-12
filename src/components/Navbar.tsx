@@ -11,28 +11,28 @@ const Navbar = ({ light = false }: { light?: boolean }) => {
 
   return (
     <>
-      <nav className={`absolute top-0 left-0 w-full flex justify-between items-center gap-5 px-5 md:px-10 py-[30px] z-20 ${light ? 'text-[#323232]' : 'text-white'}`}>
-        <Link href={'/'} className="relative w-[200px] min-[480px]:w-[300px] h-[30px]">
+      <nav className={`absolute top-0 left-0 w-full flex justify-between items-center gap-5 px-5 md:px-10 py-5 md:py-[30px] z-20 ${light ? 'text-[#323232]' : 'text-white'}`}>
+        <Link href={'/'} className="relative w-[200px] min-[480px]:w-[300px] h-[30px] flex items-center">
           {
             light ? (
               <Image
                 src="https://cdn.prod.website-files.com/62a0be23da2f1f04a6f5c1aa/62a0be23da2f1f5016f5c1d6_BKF%20Logo%20Charcoal.svg"
-                fill
                 alt="Logo"
-                className="w-4"
+                width={260}
+                height={16}
               />
             ) : (
               <Image
                 src="/logo.svg"
-                fill
                 alt="Logo"
-                className="w-4"
+                width={260}
+                height={16}
               />
             )
           }
         </Link>
 
-        <ul className="hidden lg:flex font-medium text-base">
+        <ul className="hidden lg:flex font-medium text-sm">
           <li className="uppercase cursor-pointer px-5 tracking-widest leading-3.5"><Link href={'/work/campaigns'}>Work</Link></li>
           <li className="uppercase cursor-pointer px-5 tracking-widest leading-3.5"><Link href={'/about'}>About</Link></li>
           <li className="uppercase cursor-pointer px-5 tracking-widest leading-3.5"><Link href={'/news'}>News</Link></li>
