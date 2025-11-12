@@ -111,7 +111,7 @@ const Work = () => {
 			<Navbar light={true} />
 			<WorkHero />
 
-			<div className="grid grid-cols-1 lg:grid-cols-2">
+			<div className="grid grid-cols-1 lg:grid-cols-2 text-white">
 				{videos.map((video, index) => (
 					<motion.div
 						key={video.id}
