@@ -57,10 +57,10 @@ const Navbar = ({ light = false }: { light?: boolean }) => {
               ✕
             </button>
             <div className="flex flex-col items-center space-y-8">
-              <a href="#work" onClick={() => setIsOpen(false)}>Work</a>
-              <a href="#about" onClick={() => setIsOpen(false)}>About</a>
-              <a href="#news" onClick={() => setIsOpen(false)}>News</a>
-              <a href="#contact" onClick={() => setIsOpen(false)}>Contact</a>
+              <Link href="/work/campaigns" onClick={() => setIsOpen(false)}>Work</Link>
+              <Link href="/about" onClick={() => setIsOpen(false)}>About</Link>
+              <Link href="/news" onClick={() => setIsOpen(false)}>News</Link>
+              <Link href="/contact" onClick={() => setIsOpen(false)}>Contact</Link>
             </div>
           </motion.div>
         )}
