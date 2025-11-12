@@ -3,11 +3,6 @@ import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar"
 import WorkBody from "@/components/WorkBody";
 import WorkHero from "@/components/WorkHero"
-import { motion } from "framer-motion";
-import { ArrowRight } from "lucide-react";
-import Image from "next/image";
-import Link from "next/link";
-import { useState } from "react";
 
 const props = [
 	{

@@ -6,104 +6,41 @@ import WorkHero from '@/components/WorkHero'
 const videos = [
 	{
 		id: 1,
-		thumbnail: "https://cdn.prod.website-files.com/62a0be23da2f1f1e73f5c1c4/64770341e5b5c0bfe9ce81c1_SGI%20copy.jpg",
-		director: "Edward Copestick",
-		title: "Saudi Green Initiative",
-		client: "",
-		videoUrl: "https://vimeo.com/831452813",
-		thumbnailUrl: "https://i.vimeocdn.com/video/1676862881-c19c36f2eca3ce5741fdf6f7d6f804f6f1a13a8769a601f136909b4ad4b410cc-d_1280"
+		thumbnail: "https://cdn.prod.website-files.com/62a0be23da2f1f1e73f5c1c4/62a0be23da2f1ffe3ff5c3d5_BKF0044.jpg",
+		director: "Maged Nassar &Tameem Younes",
+		title: "Black Cats On Holiday",
+		client: "Loto",
+		videoUrl: "https://vimeo.com/157561136?autoplay=1",
+		thumbnailUrl: "https://i.vimeocdn.com/video/559090832_1280.jpg"
 	},
 	{
 		id: 2,
-		thumbnail: "https://cdn.prod.website-files.com/62a0be23da2f1f1e73f5c1c4/62a0be23da2f1fbf5ff5c3d6_BKF0046.jpg",
-		director: "Darius Norowzian",
-		title: "Edge Of The World",
-		client: "Qiddiya",
-		videoUrl: "https://vimeo.com/393441419",
-		thumbnailUrl: "https://i.vimeocdn.com/video/863160825_1280.jpg"
+		thumbnail: "https://cdn.prod.website-files.com/62a0be23da2f1f1e73f5c1c4/62a0be23da2f1fb82cf5c40b_BKF0129.jpg",
+		director: "Pedros Temizian",
+		title: "#NotEverythingIsForSharing",
+		client: "Alfa",
+		videoUrl: "https://vimeo.com/418600414/7789457f21?autoplay=1",
+		thumbnailUrl: "https://i.vimeocdn.com/video/893259076_1280.jpg"
 	},
 	{
 		id: 3,
-		thumbnail: "https://cdn.prod.website-files.com/62a0be23da2f1f1e73f5c1c4/62a0be23da2f1f26c2f5c2b8_BKF0043.jpg",
-		director: "Jeroen Mol",
-		title: "2.0",
-		client: "SWYP",
-		videoUrl: "https://vimeo.com/272742349",
-		thumbnailUrl: "https://i.vimeocdn.com/video/704370367_1280.jpg"
+		thumbnail: "https://cdn.prod.website-files.com/62a0be23da2f1f1e73f5c1c4/62a0be23da2f1f4f7ff5c3c0_BKF0127.jpg",
+		director: "Big Kahuna Films",
+		title: "5G Projection Event",
+		client: "Etisalat",
+		videoUrl: "https://vimeo.com/418601662/253100fe66?autoplay=1",
+		thumbnailUrl: "https://i.vimeocdn.com/video/893254346_1280.jpg"
 	},
 	{
 		id: 4,
-		thumbnail: "https://cdn.prod.website-files.com/62a0be23da2f1f1e73f5c1c4/62a0be23da2f1f6f74f5c373_BKF0048.jpg",
-		director: "Jeroen Mol",
-		title: "Launch",
-		client: "SWYP",
-		videoUrl: "https://vimeo.com/236049434",
-		thumbnailUrl: "https://i.vimeocdn.com/video/658666364_1280.jpg"
-	},
-	{
-		id: 5,
-		thumbnail: "https://cdn.prod.website-files.com/62a0be23da2f1f1e73f5c1c4/62a0be23da2f1f357bf5c374_BKF0049.jpg",
-		director: "Henri Bassil",
-		title: "Le Mans Circuit",
-		client: "Porsche",
-		videoUrl: "https://vimeo.com/206919458",
-		thumbnailUrl: "https://i.vimeocdn.com/video/621932976_1280.jpg"
-	},
-	{
-		id: 6,
-		thumbnail: "https://cdn.prod.website-files.com/62a0be23da2f1f1e73f5c1c4/62a0be23da2f1f531bf5c375_BKF0050.jpg",
-		director: "Christian Gruner",
-		title: "Mount Everest",
-		client: "Lipton Ice Tea",
-		videoUrl: "https://vimeo.com/235712990",
-		thumbnailUrl: "https://i.vimeocdn.com/video/657611706_1280.jpg"
-	},
-	{
-		id: 7,
-		thumbnail: "https://cdn.prod.website-files.com/62a0be23da2f1f1e73f5c1c4/62a0be23da2f1f4a5ff5c376_BKF0051.jpg",
-		director: "Pedros Temizian",
-		title: "Tastemade",
-		client: "McDonald 's",
-		videoUrl: "https://vimeo.com/420413100/e0acf8b845",
-		thumbnailUrl: "https://i.vimeocdn.com/video/895649611_1280.jpg"
-	},
-	{
-		id: 8,
-		thumbnail: "https://cdn.prod.website-files.com/62a0be23da2f1f1e73f5c1c4/62a0be23da2f1f829af5c372_BKF0047.jpg",
-		director: "Ayman Abbas",
-		title: "Healthy Recipes",
-		client: "Nestle",
-		videoUrl: "https://vimeo.com/418602005/bede59a790",
-		thumbnailUrl: "https://i.vimeocdn.com/video/893253070_1280.jpg"
-	},
-	{
-		id: 9,
-		thumbnail: "https://cdn.prod.website-files.com/62a0be23da2f1f1e73f5c1c4/62a0be23da2f1f307ef5c378_BKF0053.jpg",
-		director: "Mazen Fayad",
-		title: "The Whaler",
-		client: "Skittles",
-		videoUrl: "https://vimeo.com/67715473",
-		thumbnailUrl: "https://i.vimeocdn.com/video/442136098_1280.jpg"
-	},
-	{
-		id: 10,
-		thumbnail: "https://cdn.prod.website-files.com/62a0be23da2f1f1e73f5c1c4/62a0be23da2f1f62f0f5c377_BKF0052.jpg",
-		director: "Jeroen Mol",
-		title: "The Chunky Boys",
-		client: "Kit Kat",
-		videoUrl: "https://vimeo.com/67206295",
-		thumbnailUrl: "https://i.vimeocdn.com/video/439004618_640.jpg"
-	},
-	{
-		id: 11,
-		thumbnail: "https://cdn.prod.website-files.com/62a0be23da2f1f1e73f5c1c4/62a0be23da2f1f90a3f5c370_BKF0045.jpg",
-		director: "Daniel Kaufman",
-		title: "Dramatic Chipmunk Great Escape",
-		client: "LG",
-		videoUrl: "https://vimeo.com/67648494",
-		thumbnailUrl: "https://i.vimeocdn.com/video/439713134_640.jpg"
+		thumbnail: "https://cdn.prod.website-files.com/62a0be23da2f1f1e73f5c1c4/62a0be23da2f1f4e7bf5c2b3_BKF0126.jpg",
+		director: "Big Kahuna Films",
+		title: "10 Year Anniversary Event",
+		client: "Big Kahuna Films",
+		videoUrl: "https://vimeo.com/235523660?autoplay=1",
+		thumbnailUrl: "https://i.vimeocdn.com/video/657381563_1280.jpg"
 	}
-];
+]
 
 const Entertainment = () => {
 	return (
