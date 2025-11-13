@@ -2,6 +2,30 @@ import Footer from "@/components/Footer"
 import Navbar from "@/components/Navbar"
 import WorkBody from "@/components/WorkBody"
 import WorkHero from "@/components/WorkHero"
+import { Metadata } from "next"
+
+export const metadata: Metadata = {
+    title: "Digital - Work",
+    description:
+        "Expertly crafted campaign work from our award-winning team. View all of BIG KAHUNA FILM campaign work now.",
+    openGraph: {
+        title: "Digital - Work | BIG KAHUNA FILMS",
+        description:
+            "Expertly crafted campaign work from our award-winning team. View all of BIG KAHUNA FILM campaign work now.",
+        type: "website",
+    },
+    twitter: {
+        card: "summary_large_image",
+        title: "Digital - Work | BIG KAHUNA FILMS",
+        description:
+            "Expertly crafted campaign work from our award-winning team. View all of BIG KAHUNA FILM campaign work now.",
+    },
+    viewport: "width=device-width, initial-scale=1",
+    icons: {
+        icon: '/favicon.png',
+        apple: '/apple-touch-icon.png',
+    }
+}
 
 const videos = [
     {

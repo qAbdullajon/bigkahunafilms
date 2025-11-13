@@ -2,7 +2,10 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: 'BIG KAHUNA FILMS - A Creative Production House',
+  title: {
+    default: 'BIG KAHUNA FILMS - A Creative Production House',
+    template: '%s | BIG KAHUNA FILMS'
+  },
   description: 'Welcome to BIG KAHUNA FILMS, an award-winning creative production house, with offices in Dubai and Beirut.',
   viewport: 'width=device-width, initial-scale=1',
   icons: {
