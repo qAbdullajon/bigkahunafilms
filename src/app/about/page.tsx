@@ -234,7 +234,7 @@ const About = () => {
                   initial={isMd ? { opacity: 0, x: 70 } : {}}
                   whileInView={isMd ? { opacity: 1, x: 0 } : {}}
                   transition={isMd ? { duration: 0.6, ease: "easeInOut" } : {}}
-                  viewport={isMd ? { once: true, amount: 0.3 } : {}}
+                  viewport={isMd ? { once: true, amount: 0.1 } : {}}
                   className="mb-10 border-b border-[#32323233] pb-[30px] last:border-b-0"
                 >
                   <h3 className="text-[28px] sm:text-[34px] md:text-[40px] font-bold mb-2.5">
