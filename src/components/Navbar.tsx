@@ -4,9 +4,11 @@ import { AnimatePresence, motion } from "framer-motion"
 import { Menu } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
+import { usePathname } from "next/navigation"
 import { useState } from "react"
 
 const Navbar = ({ light = false }: { light?: boolean }) => {
+  const pathname = usePathname()
   const [isOpen, setIsOpen] = useState(false)
 
   return (
@@ -33,10 +35,15 @@ const Navbar = ({ light = false }: { light?: boolean }) => {
         </Link>
 
         <ul className="hidden lg:flex font-medium text-sm">
-          <li className="uppercase cursor-pointer px-5 tracking-widest leading-3.5"><Link href={'/work/campaigns'}>Work</Link></li>
-          <li className="uppercase cursor-pointer px-5 tracking-widest leading-3.5"><Link href={'/about'}>About</Link></li>
-          <li className="uppercase cursor-pointer px-5 tracking-widest leading-3.5"><Link href={'/news'}>News</Link></li>
-          <li className="uppercase cursor-pointer px-5 tracking-widest leading-3.5"><Link href={'/contact'}>Contact</Link></li>
+          {
+            pathname !== '/' && (
+              <li className="uppercase cursor-pointer px-5 tracking-widest leading-3.5 hover:opacity-70"><Link href={'/'}>Home</Link></li>
+            )
+          }
+          <li className="uppercase cursor-pointer px-5 tracking-widest leading-3.5 hover:opacity-70"><Link href={'/work/campaigns'}>Work</Link></li>
+          <li className="uppercase cursor-pointer px-5 tracking-widest leading-3.5 hover:opacity-70"><Link href={'/about'}>About</Link></li>
+          <li className="uppercase cursor-pointer px-5 tracking-widest leading-3.5 hover:opacity-70"><Link href={'/news'}>News</Link></li>
+          <li className="uppercase cursor-pointer px-5 tracking-widest leading-3.5 hover:opacity-70"><Link href={'/contact'}>Contact</Link></li>
         </ul>
 
         <div className="lg:hidden cursor-pointer" onClick={() => setIsOpen(true)}>
@@ -57,6 +64,11 @@ const Navbar = ({ light = false }: { light?: boolean }) => {
               ✕
             </button>
             <div className="flex flex-col items-center space-y-8">
+              {
+                pathname !== '/' && (
+                  <Link href="/" onClick={() => setIsOpen(false)}>Home</Link>
+                )
+              }
               <Link href="/work/campaigns" onClick={() => setIsOpen(false)}>Work</Link>
               <Link href="/about" onClick={() => setIsOpen(false)}>About</Link>
               <Link href="/news" onClick={() => setIsOpen(false)}>News</Link>
