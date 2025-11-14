@@ -1,11 +1,12 @@
 "use client"
-import Footer from "@/components/Footer"
-import Navbar from "@/components/Navbar"
-import { motion } from "framer-motion"
-import { ArrowDown, ArrowRight, MoveRight } from "lucide-react"
-import Image from "next/image"
-import Link from "next/link"
-import { useEffect, useState } from "react"
+import Footer from "@/components/Footer";
+import Navbar from "@/components/Navbar";
+import { motion } from "framer-motion";
+import { ArrowDown, ArrowLeft, ArrowRight } from "lucide-react";
+import Image from "next/image";
+import Link from "next/link";
+import { notFound, useParams } from "next/navigation"
+import { useEffect, useState } from "react";
 
 const newsArray = [
   {
@@ -248,20 +249,21 @@ const newsArray = [
   }
 ];
 
-const News = () => {
-  const [size, setSize] = useState<'sm' | 'md' | 'lg'>('sm');
+const ArticlePage = () => {
+  const { slug } = useParams()
   const [isClient, setIsClient] = useState(false);
+  const [isMd, setIsMd] = useState(false);
+  const existSlug = newsArray.find(a => a.href.split('/')[2] === slug)
+
+  const getVimeoId = (url: string) => {
+    const match = url.match(/(?:vimeo\.com\/|player\.vimeo\.com\/video\/)(\d+)/)
+    return match ? match[1] : null
+  }
 
   useEffect(() => {
     setIsClient(true);
     const checkScreenSize = () => {
-      if (window.innerWidth <= 768) {
-        setSize('sm');
-      } else if (window.innerWidth <= 1024) {
-        setSize('md');
-      } else {
-        setSize('lg');
-      }
+      setIsMd(window.innerWidth >= 1024);
     };
 
     checkScreenSize();
@@ -271,63 +273,58 @@ const News = () => {
   }, []);
 
   if (!isClient) return null;
+
+  if (!existSlug?.id) {
+    notFound()
+  }
   return (
     <div className="text-[#323232]">
       <Navbar light={true} />
-      <div className="pt-[140px] pb-16 border-b border-[#32323233] px-5 md:px-10 text-center">
-        <motion.h1
-          className="text-[40px] min-[480px]:text-[64px] min-[480px]:leading-[72px] leading-[46px] font-black capitalize"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.6, ease: "easeInOut" }}
-        >
-          News
-        </motion.h1>
-      </div>
-      <motion.div
-        initial={{ opacity: 0, y: 70 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, ease: "easeInOut" }}
-        viewport={{ once: true, amount: 0.3 }}
-        className="py-20 px-5 md:px-10 flex flex-col-reverse gap-[30px] md:flex-row md:items-center md:gap-10 lg:gap-24 max-w-[1150px] mx-auto"
-      >
-        <div className="md:w-1/2">
-          <p className="text-sm font-medium tracking-[.15em] leading-3">Featured news</p>
-          <h2 className="text-lg leading-[23px] py-2.5 font-bold">The Immortal Awards announces BIG KAHUNA FILMS as Middle Eastern partner</h2>
-          <p className="pb-5">As The Immortal Awards strides into its fifth year, Little Black Book is thrilled to announce creative production house BIG KAHUNA FILMS as the Middle Eastern s</p>
-          <Link className="flex items-center gap-2.5 text-sm leading-3.5 hover:gap-4 hover:text-[#323232]/50 transition-all duration-200" href="/news/immortal-awards">
-            <div>Read Article</div>
-            <ArrowRight size={18} />
+      <div className="pt-[142px] pb-10 px-5 md:px-10">
+        <div className="max-w-[900px] mx-auto">
+          <Link className="text-sm mb-5 flex items-center justify-center gap-2 group hover:text-[#323232]/50" href="/news">
+            <ArrowLeft className="group-hover:-translate-x-1 transition-all duration-200" size={18} />
+            <p>Back to News</p>
           </Link>
+          <h1 className="text-center text-[51px] font-black leading-[58px] pb-5">{existSlug.title}</h1>
+          <p className="text-sm text-center">{existSlug.date}</p>
         </div>
-        <div className="w-full h-[200px] min-[480px]:h-[300px] relative md:w-1/2">
-          <Image className="object-cover" src={'https://cdn.prod.website-files.com/62a0be23da2f1f1e73f5c1c4/62a0be23da2f1f3512f5c4ac_Logos-on-Black.jpg'} alt="News" fill />
-        </div>
-      </motion.div>
+      </div>
 
-      <div className="bg-white py-[60px] px-5 md:px-10">
+      <div className="max-w-[800px] mx-auto bg-white pt-[30px] mb-16 pb-2.5 px-[30px]">
+        <p className="pb-2.5">As the world is well-aware, the explosion that happened in Beirut port on the 4th of August 2020 devastated the lives of many and left a huge scar.</p>
+        <p className="pb-2.5">For many Lebanese citizens, the tragic happening was the loudest explosion in memory, and there’s no shortage of explosive memories in Lebanon. </p>
+        <p className="pb-2.5">
+          <strong>Directed by Wissam Tanios</strong>
+          , the documentary was created to convey an extremely powerful message and shed light on the country’s current situation.
+        </p>
+        <p className="pb-2.5">The Beirut Episode is part of a series on <strong>Vice</strong> platform called <strong>Open Secrets</strong> . It aims to reveal the truth behind this horrific event and show the real corruption the Lebanese people battle with on a daily basis. The shoot, of course, took place across Beirut with 1 month of preparation writing and pre-production, 6 days of shooting and around 45 days of editing.</p>
+        <p className="pb-2.5">Uncovering and dealing with real life matters was somewhat challenging as we dealt with real victims shortly after the tragedy, which was tough for everyone.</p>
+        <p className="pb-2.5">Take a look at the trailer below:</p>
+
+        <div className="w-full aspect-video">
+          <iframe
+            src={`https://player.vimeo.com/video/${getVimeoId('https://player.vimeo.com/video/717858309')}?title=0&byline=0&portrait=0`}
+            className="w-full h-full"
+            allow="fullscreen; picture-in-picture"
+            allowFullScreen
+          ></iframe>
+        </div>
+
+      </div>
+
+      <div className="bg-white py-20 px-5 md:px-10">
         <div className="flex items-center max-w-[250px] lg:max-w-[300px] mx-auto mb-12 w-full justify-between">
-          <h2 className="text-2xl font-bold">Latest Articles</h2>
+          <h2 className="text-2xl font-bold">Read More</h2>
           <ArrowDown />
         </div>
+
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-[30px] gap-y-[50px] max-w-[1150px] mx-auto">
           {
-            newsArray.map((item, i) => (
-              <motion.div
+            newsArray.slice(0, !isMd ? 2 : 3).map((item, i) => (
+              <div
                 key={i}
                 className="group"
-                initial={{ opacity: 0, y: 70 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{
-                  duration: 0.6,
-                  delay: size === 'sm'
-                    ? i * 0.12
-                    : size === 'md'
-                      ? (i % 2 === 1 ? (i - 1) * 0.12 : i * 0.12)
-                      : (i % 3 === 2 ? (i - 2) * 0.12 : i % 3 === 1 ? (i - 1) * 0.12 : i * 0.12),
-                  ease: "easeInOut"
-                }}
-                viewport={{ once: true, amount: 0.1 }}
               >
                 <Link href={item.href}>
                   <div className="relative w-full h-[180px] min-[480px]:h-[350px] md:h-[250px] overflow-hidden">
@@ -342,33 +339,14 @@ const News = () => {
                     </div>
                   </div>
                 </Link>
-              </motion.div>
+              </div>
             ))
           }
         </div>
       </div>
-
-      <Link href={'/contact'} className="relative group block h-[400px] z-0">
-        <video
-          className="w-full h-full object-cover"
-          src="https://cdn.prod.website-files.com/62a0be23da2f1f04a6f5c1aa/62a0be23da2f1f4c9af5c1f8_Clips_OptionB_one%20sequence_low-transcode.mp4"
-          autoPlay
-          muted
-          loop
-          playsInline
-          preload="auto"
-        />
-        <div className="absolute left-1/2 w-full top-1/2 -translate-1/2 text-white group-hover:text-white/60 transition-colors duration-200 z-20">
-          <p className="font-black text-4xl text-center pb-2">Speak to Us Today</p>
-          <div className="flex items-center gap-2 justify-center text-sm">
-            <span>Contact BKF</span>
-            <ArrowRight size={18} />
-          </div>
-        </div>
-      </Link>
       <Footer />
-    </div >
+    </div>
   )
 }
 
-export default News
+export default ArticlePage

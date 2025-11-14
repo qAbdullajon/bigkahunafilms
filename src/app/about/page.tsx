@@ -5,6 +5,7 @@ import WorkModal from "@/components/WorkModal"
 import { motion } from "framer-motion"
 import { ArrowRight, MoveRight } from "lucide-react"
 import Image from "next/image"
+import Link from "next/link"
 import { useEffect, useState } from "react"
 
 const videos = [
@@ -262,7 +263,7 @@ const About = () => {
       </div>
 
       {/* Video Section with Lower Z-index */}
-      <div className="relative group h-[400px] z-0">
+      <Link href={'/contact'} className="relative block group h-[400px] z-0">
         <video
           className="w-full h-full object-cover"
           src="https://cdn.prod.website-files.com/62a0be23da2f1f04a6f5c1aa/62a0be23da2f1f4c9af5c1f8_Clips_OptionB_one%20sequence_low-transcode.mp4"
@@ -279,7 +280,7 @@ const About = () => {
             <ArrowRight size={18} />
           </div>
         </div>
-      </div>
+      </Link>
 
 
       <Footer />
